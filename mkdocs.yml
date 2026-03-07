@@ -1,0 +1,267 @@
+site_name: Agentic Track
+site_description: Practical documentation for LangChain, agents, RAG, LangGraph, and MCP
+docs_dir: docs
+theme:
+  name: material
+  language: en
+  logo: assets/agentic-logo.svg
+  favicon: assets/agentic-logo.svg
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: slate
+      primary: black
+      accent: black
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.3/dist/mermaid.min.js
+  - javascripts/extra.js
+nav:
+  - Home: index.md
+  - "01. Introduction":
+    - Overview: 01-introduction/index.md
+    - Lessons:
+      - "01. Introduction": 01-introduction/01-introduction.md
+      - "02. Objectives": 01-introduction/02-objectives.md
+      - "03. Resources": 01-introduction/03-resources.md
+  - "02. The Essentials of LangChain - Hello World Chain":
+    - Overview: 02-the-essentials-of-langchain-hello-world-chain/index.md
+    - Lessons:
+      - "01. What is LangChain?": 02-the-essentials-of-langchain-hello-world-chain/01-what-is-langchain.md
+      - "02. What are we building? LangChain Hello World Chain": 02-the-essentials-of-langchain-hello-world-chain/02-what-are-we-building-langchain-hello-world-chain.md
+      - "03. Project Setup": 02-the-essentials-of-langchain-hello-world-chain/03-project-setup.md
+      - "04. LangChain Fundamentals: Prompt Templates, ChatModels, and Chains": 02-the-essentials-of-langchain-hello-world-chain/04-langchain-fundamentals-prompt-templates-chatmodels-and-chains.md
+      - "05. Building a LangChain Chain to Summarize Text": 02-the-essentials-of-langchain-hello-world-chain/05-building-a-langchain-chain-to-summarize-text.md
+      - "06. Debugging and Tracing Our LangChain Chain": 02-the-essentials-of-langchain-hello-world-chain/06-debugging-and-tracing-our-langchain-chain.md
+      - "07. Using Local Open-Weights Models with LangChain and Ollama": 02-the-essentials-of-langchain-hello-world-chain/07-using-local-open-weights-models-with-langchain-and-ollama.md
+      - "08. Integrating LangSmith for LangChain Application Tracing": 02-the-essentials-of-langchain-hello-world-chain/08-integrating-langsmith-for-langchain-application-tracing.md
+      - "09. LangChain LCEL Fundamentals Quiz": 02-the-essentials-of-langchain-hello-world-chain/09-langchain-lcel-fundamentals-quiz.md
+      - "10. LangChain Model Switching: Groq API Integration": 02-the-essentials-of-langchain-hello-world-chain/10-langchain-model-switching-groq-api-integration.md
+      - "11. LangChain Version in Course V1": 02-the-essentials-of-langchain-hello-world-chain/11-langchain-version-in-course-v1.md
+      - "12. Which LLM to Use? (OpenAI, Gemini, Anthropic, Mistral, Llama)": 02-the-essentials-of-langchain-hello-world-chain/12-which-llm-to-use-openai-gemini-anthropic-mistral-llama.md
+  - "03. The Essentials of AI Agents":
+    - Overview: 03-the-essentials-of-ai-agents/index.md
+    - Lessons:
+      - "01. What are AI Agents? A High-Level Overview": 03-the-essentials-of-ai-agents/01-what-are-ai-agents-a-high-level-overview.md
+      - "02. Creating an AI Job Search Agent: A Practical Demo": 03-the-essentials-of-ai-agents/02-creating-an-ai-job-search-agent-a-practical-demo.md
+      - "03. The Evolution of LangChain ReAct Agents": 03-the-essentials-of-ai-agents/03-the-evolution-of-langchain-react-agents.md
+      - "04. Setting Up the Environment for a LangChain Search Agent": 03-the-essentials-of-ai-agents/04-setting-up-the-environment-for-a-langchain-search-agent.md
+      - "05. Creating Your First LangChain Agent: Tools and LLMs": 03-the-essentials-of-ai-agents/05-creating-your-first-langchain-agent-tools-and-llms.md
+      - "06. From Query to Answer: How a LangChain Agent Thinks": 03-the-essentials-of-ai-agents/06-from-query-to-answer-how-a-langchain-agent-thinks.md
+      - "07. Integrating Real-World Search with Tavily and LangChain Tools": 03-the-essentials-of-ai-agents/07-integrating-real-world-search-with-tavily-and-langchain-tools.md
+      - "08. Structured Output with LangChain Agents Using Pydantic": 03-the-essentials-of-ai-agents/08-structured-output-with-langchain-agents-using-pydantic.md
+      - "09. Predictable Agent Responses with LangChain Structured Output": 03-the-essentials-of-ai-agents/09-predictable-agent-responses-with-langchain-structured-output.md
+  - "04. Agents Under the Hood":
+    - Overview: 04-agents-under-the-hood/index.md
+    - Lessons:
+      - "01. Introduction to the Core Architecture of AI Agents": 04-agents-under-the-hood/01-introduction-to-the-core-architecture-of-ai-agents.md
+      - "02. Project Theme: The E-Commerce Agent": 04-agents-under-the-hood/02-project-theme-the-e-commerce-agent.md
+      - "03. The Essentials of ReAct": 04-agents-under-the-hood/03-the-essentials-of-react.md
+      - "04. Setup": 04-agents-under-the-hood/04-setup.md
+      - "05. Layer 1: The ReAct Loop": 04-agents-under-the-hood/05-layer-1-the-react-loop.md
+      - "06. Tool Binding and Defensive Prompting": 04-agents-under-the-hood/06-tool-binding-and-defensive-prompting.md
+      - "07. Understanding the ReAct Agent Loop in LangChain": 04-agents-under-the-hood/07-understanding-the-react-agent-loop-in-langchain.md
+      - "08. Model Switch": 04-agents-under-the-hood/08-model-switch.md
+      - "09. Quiz: AI Agent Loop with LangChain Tool Calling": 04-agents-under-the-hood/09-quiz-ai-agent-loop-with-langchain-tool-calling.md
+      - "10. Layer 2: Manual JSON Schemas vs. LangChain Tool Abstraction": 04-agents-under-the-hood/10-layer-2-manual-json-schemas-vs-langchain-tool-abstraction.md
+      - "11. Building a ReAct Agent Loop with the Raw Ollama SDK": 04-agents-under-the-hood/11-building-a-react-agent-loop-with-the-raw-ollama-sdk.md
+      - "12. Recap": 04-agents-under-the-hood/12-recap.md
+      - "13. Quiz: Raw Function Calling - AI Agent Without LangChain": 04-agents-under-the-hood/13-quiz-raw-function-calling-ai-agent-without-langchain.md
+      - "14. Layer 3: The ReAct Prompt": 04-agents-under-the-hood/14-layer-3-the-react-prompt.md
+      - "15. Generating Dynamic Tool Descriptions in Python": 04-agents-under-the-hood/15-generating-dynamic-tool-descriptions-in-python.md
+      - "16. Understanding the ReAct Prompt": 04-agents-under-the-hood/16-understanding-the-react-prompt.md
+      - "17. Implementing Manual Tool Calling for LLMs": 04-agents-under-the-hood/17-implementing-manual-tool-calling-for-llms.md
+      - "18. Agent Loop With ReAct Prompt": 04-agents-under-the-hood/18-agent-loop-with-react-prompt.md
+  - "05. Function Calling":
+    - Overview: 05-function-calling/index.md
+    - Lessons:
+      - "01. Intro": 05-function-calling/01-intro.md
+      - "02. Understanding Function Calling for LLMs": 05-function-calling/02-understanding-function-calling-for-llms.md
+  - "06. The Essentials of RAG - Embeddings, Vector Databases, Retrieval":
+    - Overview: 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/index.md
+    - Lessons:
+      - "01. Introduction to Retrieval Augmentation Generation": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/01-introduction-to-retrieval-augmentation-generation.md
+      - "02. Introduction to RAG Implementation": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/02-introduction-to-rag-implementation.md
+      - "03. Medium Analyzer - Boilerplate Setup": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/03-medium-analyzer-boilerplate-setup.md
+      - "04. Medium Analyzer - Class Review": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/04-medium-analyzer-class-review.md
+      - "05. Medium Analyzer - Ingestion Implementation": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/05-medium-analyzer-ingestion-implementation.md
+      - "06. Recap": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/06-recap.md
+      - "07. Medium Analyzer - Naive Retrieval": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/07-medium-analyzer-naive-retrieval.md
+      - "08. Medium Analyzer - 2 Step RAG": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/08-medium-analyzer-2-step-rag.md
+      - "09. LangChain RAG Documentation": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/09-langchain-rag-documentation.md
+      - "10. RAG Implementation with Vector Stores Quiz": 06-the-essentials-of-rag-embeddings-vector-databases-retrieval/10-rag-implementation-with-vector-stores-quiz.md
+  - "07. Building a Documentation Assistant (RAG)":
+    - Overview: 07-building-a-documentation-assistant-rag/index.md
+    - Lessons:
+      - "01. What are we building?": 07-building-a-documentation-assistant-rag/01-what-are-we-building.md
+      - "02. Pipenv vs uv": 07-building-a-documentation-assistant-rag/02-pipenv-vs-uv.md
+      - "03. Environment Setup": 07-building-a-documentation-assistant-rag/03-environment-setup.md
+      - "04. Ingestion Pipeline Intro": 07-building-a-documentation-assistant-rag/04-ingestion-pipeline-intro.md
+      - "05. Imports": 07-building-a-documentation-assistant-rag/05-imports.md
+      - "06. Tavily Crawling": 07-building-a-documentation-assistant-rag/06-tavily-crawling.md
+      - "07. TavilyMap / TavilyExtract": 07-building-a-documentation-assistant-rag/07-tavilymap-tavilyextract.md
+      - "08. Crawling Deep Dive": 07-building-a-documentation-assistant-rag/08-crawling-deep-dive.md
+      - "09. Recap": 07-building-a-documentation-assistant-rag/09-recap.md
+      - "10. Chunking (Text Splitting)": 07-building-a-documentation-assistant-rag/10-chunking-text-splitting.md
+      - "11. Batch Indexing": 07-building-a-documentation-assistant-rag/11-batch-indexing.md
+      - "12. Retrieval Agent Implementation": 07-building-a-documentation-assistant-rag/12-retrieval-agent-implementation.md
+      - "13. Run, Debug, Trace RAG Agent": 07-building-a-documentation-assistant-rag/13-run-debug-trace-rag-agent.md
+      - "14. Frontend with Streamlit": 07-building-a-documentation-assistant-rag/14-frontend-with-streamlit.md
+      - "15. Documentation Helper in Production": 07-building-a-documentation-assistant-rag/15-documentation-helper-in-production.md
+      - "16. RAG Architecture": 07-building-a-documentation-assistant-rag/16-rag-architecture.md
+  - "08. Prompt Engineering Theory":
+    - Overview: 08-prompt-engineering-theory/index.md
+    - Lessons:
+      - "01. The Essentials of LLMs": 08-prompt-engineering-theory/01-the-essentials-of-llms.md
+      - "02. What is a Prompt?": 08-prompt-engineering-theory/02-what-is-a-prompt.md
+      - "03. Zero Shot Prompting": 08-prompt-engineering-theory/03-zero-shot-prompting.md
+      - "04. Few Shot Prompting": 08-prompt-engineering-theory/04-few-shot-prompting.md
+      - "05. Chain of Thought Prompting": 08-prompt-engineering-theory/05-chain-of-thought-prompting.md
+      - "06. ReAct Prompting": 08-prompt-engineering-theory/06-react-prompting.md
+      - "07. Prompt Engineering Quick Tips": 08-prompt-engineering-theory/07-prompt-engineering-quick-tips.md
+      - "08. Context Engineering": 08-prompt-engineering-theory/08-context-engineering.md
+      - "09. Context Engineering a System Prompt": 08-prompt-engineering-theory/09-context-engineering-a-system-prompt.md
+  - "09. LLM Applications in Production":
+    - Overview: 09-llm-applications-in-production/index.md
+    - Lessons:
+      - "01. LLM Applications in Production": 09-llm-applications-in-production/01-llm-applications-in-production.md
+      - "02. LLM Application Development Landscape": 09-llm-applications-in-production/02-llm-application-development-landscape.md
+      - "03. LLMs in Production: Privacy & Data Retention": 09-llm-applications-in-production/03-llms-in-production-privacy-and-data-retention.md
+      - "04. Generative UI/UX with CopilotKit": 09-llm-applications-in-production/04-generative-ui-ux-with-copilotkit.md
+      - "05. Official LangChain Academy Courses": 09-llm-applications-in-production/05-official-langchain-academy-courses.md
+      - "06. Open Source LLMs vs Managed Providers": 09-llm-applications-in-production/06-open-source-llms-vs-managed-providers.md
+      - "07. Confidence in AI Results": 09-llm-applications-in-production/07-confidence-in-ai-results.md
+      - "08. AI FOMO is the New Normal": 09-llm-applications-in-production/08-ai-fomo-is-the-new-normal.md
+      - "09. Finished Course? What's Next?": 09-llm-applications-in-production/09-finished-course-what-s-next.md
+  - "10. Introduction to LangGraph":
+    - Overview: 10-introduction-to-langgraph/index.md
+    - Lessons:
+      - "01. What is LangGraph?": 10-introduction-to-langgraph/01-what-is-langgraph.md
+      - "02. Why LangGraph?": 10-introduction-to-langgraph/02-why-langgraph.md
+      - "03. What are Graphs?": 10-introduction-to-langgraph/03-what-are-graphs.md
+      - "04. LangGraph & Flow Engineering": 10-introduction-to-langgraph/04-langgraph-and-flow-engineering.md
+      - "05. LangGraph Core Components": 10-introduction-to-langgraph/05-langgraph-core-components.md
+      - "06. Implementing ReAct AgentExecutor with LangGraph": 10-introduction-to-langgraph/06-implementing-react-agentexecutor-with-langgraph.md
+      - "07. Poetry vs uv": 10-introduction-to-langgraph/07-poetry-vs-uv.md
+      - "08. Setting Up ReAct Agent Project": 10-introduction-to-langgraph/08-setting-up-react-agent-project.md
+      - "09. Coding the Agent's Brain": 10-introduction-to-langgraph/09-coding-the-agent-s-brain.md
+      - "10. Defining Agent Nodes in LangGraph": 10-introduction-to-langgraph/10-defining-agent-nodes-in-langgraph.md
+      - "11. Connecting Nodes into a Graph": 10-introduction-to-langgraph/11-connecting-nodes-into-a-graph.md
+      - "12. Running LangGraph ReAct Agent with Function Calling": 10-introduction-to-langgraph/12-running-langgraph-react-agent-with-function-calling.md
+      - "13. Building Modern LLM Agents": 10-introduction-to-langgraph/13-building-modern-llm-agents.md
+  - "11. Reflection Agent":
+    - Overview: 11-reflection-agent/index.md
+    - Lessons:
+      - "01. What are we building?": 11-reflection-agent/01-what-are-we-building.md
+      - "02. Project Setup": 11-reflection-agent/02-project-setup.md
+      - "03. Creating the Reflector Chain and Tweet Revisor": 11-reflection-agent/03-creating-the-reflector-chain-and-tweet-revisor.md
+      - "04. Defining our LangGraph Graph": 11-reflection-agent/04-defining-our-langgraph-graph.md
+      - "05. LangSmith Tracing": 11-reflection-agent/05-langsmith-tracing.md
+  - "12. Reflexion Agent":
+    - Overview: 12-reflexion-agent/index.md
+    - Lessons:
+      - "01. What are we building": 12-reflexion-agent/01-what-are-we-building.md
+      - "02. Project Setup": 12-reflexion-agent/02-project-setup.md
+      - "03. Section Resources": 12-reflexion-agent/03-section-resources.md
+      - "04. Actor Agent V2": 12-reflexion-agent/04-actor-agent-v2.md
+      - "05. Revisor Agent": 12-reflexion-agent/05-revisor-agent.md
+      - "06. ToolNode - Executing Tools": 12-reflexion-agent/06-toolnode-executing-tools.md
+      - "07. Building our LangGraph Graph": 12-reflexion-agent/07-building-our-langgraph-graph.md
+      - "08. Tracing our Graph": 12-reflexion-agent/08-tracing-our-graph.md
+  - "13. Agentic RAG":
+    - Overview: 13-agentic-rag/index.md
+    - Lessons:
+      - "01. Agentic RAG Architecture": 13-agentic-rag/01-agentic-rag-architecture.md
+      - "02. Improving RAG with Corrective Flow": 13-agentic-rag/02-improving-rag-with-corrective-flow.md
+      - "03. Boilerplate Setup": 13-agentic-rag/03-boilerplate-setup.md
+      - "04. Code Structure": 13-agentic-rag/04-code-structure.md
+      - "05. LangChain Vector Store Ingestion Pipeline": 13-agentic-rag/05-langchain-vector-store-ingestion-pipeline.md
+      - "06. Managing Information Flow in LangGraph": 13-agentic-rag/06-managing-information-flow-in-langgraph.md
+      - "07. LangGraph Retrieve Node": 13-agentic-rag/07-langgraph-retrieve-node.md
+      - "08. Relevance Filter for RAG": 13-agentic-rag/08-relevance-filter-for-rag.md
+      - "09. Web Search Node with Tavily API": 13-agentic-rag/09-web-search-node-with-tavily-api.md
+      - "10. LLM Generation Node": 13-agentic-rag/10-llm-generation-node.md
+      - "11. Running the Complete LangGraph Agent": 13-agentic-rag/11-running-the-complete-langgraph-agent.md
+      - "12. Self RAG": 13-agentic-rag/12-self-rag.md
+      - "13. Adaptive RAG": 13-agentic-rag/13-adaptive-rag.md
+  - "14. Model Context Protocol (MCP)":
+    - Overview: 14-model-context-protocol-mcp/index.md
+    - Lessons:
+      - "01. Why MCP": 14-model-context-protocol-mcp/01-why-mcp.md
+      - "02. How LLMs Use Tools": 14-model-context-protocol-mcp/02-how-llms-use-tools.md
+      - "03. Essentials of the Protocol with Tool Calling": 14-model-context-protocol-mcp/03-essentials-of-the-protocol-with-tool-calling.md
+      - "04. MCP Architecture": 14-model-context-protocol-mcp/04-mcp-architecture.md
+      - "05. MCP Servers": 14-model-context-protocol-mcp/05-mcp-servers.md
+      - "06. LangChain MCP Adapter": 14-model-context-protocol-mcp/06-langchain-mcp-adapter.md
+      - "07. MCP Quiz": 14-model-context-protocol-mcp/07-mcp-quiz.md
+  - "15. Using a Prebuilt MCP Server":
+    - Overview: 15-using-a-prebuilt-mcp-server/index.md
+    - Lessons:
+      - "01. What are we building?": 15-using-a-prebuilt-mcp-server/01-what-are-we-building.md
+      - "02. MCP Inspector": 15-using-a-prebuilt-mcp-server/02-mcp-inspector.md
+      - "03. LLM.txt": 15-using-a-prebuilt-mcp-server/03-llm-txt.md
+      - "04. mcpdoc": 15-using-a-prebuilt-mcp-server/04-mcpdoc.md
+  - "16. Building MCP Servers and Clients":
+    - Overview: 16-building-mcp-servers-and-clients/index.md
+    - Lessons:
+      - "01. Intro": 16-building-mcp-servers-and-clients/01-intro.md
+      - "02. Boilerplate": 16-building-mcp-servers-and-clients/02-boilerplate.md
+      - "03. Servers": 16-building-mcp-servers-and-clients/03-servers.md
+      - "04. What are we building?": 16-building-mcp-servers-and-clients/04-what-are-we-building.md
+      - "05. Simple MCP Server": 16-building-mcp-servers-and-clients/05-simple-mcp-server.md
+      - "06. LangChain MultiServer MCP Client": 16-building-mcp-servers-and-clients/06-langchain-multiserver-mcp-client.md
+      - "07. Tracing": 16-building-mcp-servers-and-clients/07-tracing.md
+  - "17. Useful Tools for LLM Applications":
+    - Overview: 17-useful-tools-for-llm-applications/index.md
+    - Lessons:
+      - "01. Stop Writing Deprecated Code": 17-useful-tools-for-llm-applications/01-stop-writing-deprecated-code.md
+      - "02. LangChain Hub": 17-useful-tools-for-llm-applications/02-langchain-hub.md
+      - "03. TextSplitting Playground": 17-useful-tools-for-llm-applications/03-textsplitting-playground.md
+      - "04. LangChain vs LlamaIndex": 17-useful-tools-for-llm-applications/04-langchain-vs-llamaindex.md
+  - "18. Deep Agents":
+    - Overview: 18-deep-agents/index.md
+    - Lessons:
+      - "01. Introduction": 18-deep-agents/01-introduction.md
+      - "02. Taxonomy of Agents": 18-deep-agents/02-taxonomy-of-agents.md
+      - "03. Dynamic To-Do Lists": 18-deep-agents/03-dynamic-to-do-lists.md
+      - "04. Sub-Agents and Hierarchical Delegation": 18-deep-agents/04-sub-agents-and-hierarchical-delegation.md
+      - "05. Subagent Context Flow": 18-deep-agents/05-subagent-context-flow.md
+      - "06. Deep Agent File Systems": 18-deep-agents/06-deep-agent-file-systems.md
+  - "19. LangChain Glossary":
+    - Overview: 19-langchain-glossary/index.md
+    - Lessons:
+      - "01. ChatModels": 19-langchain-glossary/01-chatmodels.md
+      - "02. Messages": 19-langchain-glossary/02-messages.md
+      - "03. RecursiveCharacterTextSplitter": 19-langchain-glossary/03-recursivecharactertextsplitter.md
+      - "04. Document": 19-langchain-glossary/04-document.md
+      - "05. LangChain Token Limitation Handling": 19-langchain-glossary/05-langchain-token-limitation-handling.md
+      - "06. LangChain Memory Intro": 19-langchain-glossary/06-langchain-memory-intro.md
+      - "07. LangChain Memory Theory Deepdive": 19-langchain-glossary/07-langchain-memory-theory-deepdive.md
+  - "20. Agent Security":
+    - Overview: 20-agent-security/index.md
+    - Lessons:
+      - "01. What is LLM App Security?": 20-agent-security/01-what-is-llm-app-security.md
+      - "02. The Bad of Agentic Coding": 20-agent-security/02-the-bad-of-agentic-coding.md

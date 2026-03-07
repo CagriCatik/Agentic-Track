@@ -1,0 +1,44 @@
+# MkDocs build output
+site/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+venv/
+env/
+ENV/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# MkDocs Material cache (optional)
+.cache/
+
+# Node modules (if you use extra tooling)
+node_modules/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo

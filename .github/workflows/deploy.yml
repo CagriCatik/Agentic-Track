@@ -16,8 +16,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -33,6 +33,21 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Validate PAT secret
+        env:
+          MKDOCS_DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
+        run: |
+          if [ -z "$MKDOCS_DEPLOY_TOKEN" ]; then
+            echo "MKDOCS_DEPLOY_TOKEN is missing or not accessible in this workflow."
+            exit 1
+          fi
+
+      - name: Configure PAT remote
+        env:
+          MKDOCS_DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
+        run: |
+          git remote set-url origin "https://x-access-token:${MKDOCS_DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
       - name: Build and deploy to gh-pages
         run: mkdocs gh-deploy --force --clean --verbose

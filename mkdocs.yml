@@ -1,4 +1,8 @@
 site_name: Agentic Track
+site_url: https://cagricatik.github.io/Agentic-Track/
+repo_url: https://github.com/CagriCatik/Agentic-Track
+repo_name: CagriCatik/Agentic-Track
+edit_uri: edit/main/docs/
 site_description: Practical documentation for LangChain, agents, RAG, LangGraph, and MCP
 docs_dir: docs
 theme:

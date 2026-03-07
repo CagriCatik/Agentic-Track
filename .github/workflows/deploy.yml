@@ -1,29 +1,72 @@
-name: Deploy MkDocs site to GitHub Pages
+name: Deploy MkDocs with PAT
 
 on:
   push:
     branches:
-      - main  # Change if your default branch is different
+      - main
+      - master
+    paths:
+      - docs/**
+      - mkdocs.yml
+      - requirements-docs.txt
+      - .github/workflows/deploy.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mkdocs-deploy
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code with deploy token
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          token: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
+          fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.12"
 
-      - name: Install dependencies
+      - name: Install documentation dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install -r requirements-docs.txt
 
-      - name: Deploy to GitHub Pages
+      - name: Show installed docs versions
+        run: |
+          python -m mkdocs --version
+          pip show mkdocs mkdocs-material pymdown-extensions
+
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Validate PAT secret
         env:
-          DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
-        run: mkdocs gh-deploy --force
+          MKDOCS_DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
+        run: |
+          if [ -z "$MKDOCS_DEPLOY_TOKEN" ]; then
+            echo "MKDOCS_DEPLOY_TOKEN is missing or not accessible in this workflow."
+            exit 1
+          fi
+
+      - name: Configure PAT remote
+        env:
+          MKDOCS_DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
+        run: |
+          git remote set-url origin "https://${{ github.repository_owner }}:${MKDOCS_DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+      - name: Verify Git authentication
+        run: |
+          git ls-remote --exit-code origin HEAD > /dev/null
+
+      - name: Build and deploy to gh-pages
+        run: mkdocs gh-deploy --force --clean --no-history

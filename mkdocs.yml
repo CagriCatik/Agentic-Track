@@ -50,7 +50,8 @@ nav:
     - Lessons:
       - "01. Introduction": 01-introduction/01-introduction.md
       - "02. Objectives": 01-introduction/02-objectives.md
-      - "03. Resources": 01-introduction/03-resources.md
+      - "03. Structure": 01-introduction/03-structure.md
+      - "04. Resources": 01-introduction/04-resources.md
   - "02. The Essentials of LangChain - Hello World Chain":
     - Overview: 02-the-essentials-of-langchain-hello-world-chain/index.md
     - Lessons:

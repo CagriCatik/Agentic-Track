@@ -1,90 +1,29 @@
-name: Deploy MkDocs with PAT
+name: Deploy MkDocs site to GitHub Pages
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
-
-permissions:
-  contents: read
+      - main  # Change if your default branch is different
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code with deploy token
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-          persist-credentials: false
+          token: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.12"
+          python-version: '3.x'
 
-      - name: Install documentation dependencies
+      - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements-docs.txt
+          pip install -r requirements.txt
 
-      - name: Show installed docs versions
-        run: |
-          python -m mkdocs --version
-          pip show mkdocs mkdocs-material pymdown-extensions
-
-      - name: Configure Git identity
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Validate PAT secret
+      - name: Deploy to GitHub Pages
         env:
-          MKDOCS_DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
-        run: |
-          if [ -z "$MKDOCS_DEPLOY_TOKEN" ]; then
-            echo "MKDOCS_DEPLOY_TOKEN is missing or not accessible in this workflow."
-            exit 1
-          fi
-
-      - name: Resolve PAT user
-        id: pat_user
-        env:
-          MKDOCS_DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
-        run: |
-          python - <<'PY'
-          import json
-          import os
-          import urllib.request
-
-          token = os.environ["MKDOCS_DEPLOY_TOKEN"]
-          req = urllib.request.Request(
-              "https://api.github.com/user",
-              headers={
-                  "Authorization": f"token {token}",
-                  "Accept": "application/vnd.github+json",
-              },
-          )
-          with urllib.request.urlopen(req) as resp:
-              payload = json.load(resp)
-          login = payload.get("login")
-          if not login:
-              raise SystemExit("Failed to resolve PAT user login from GitHub API.")
-          print(f"Resolved PAT user: {login}")
-          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
-              fh.write(f"login={login}\\n")
-          PY
-
-      - name: Configure PAT remote
-        env:
-          MKDOCS_DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
-        run: |
-          git remote set-url origin "https://${{ steps.pat_user.outputs.login }}:${MKDOCS_DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-
-      - name: Verify Git authentication
-        run: |
-          git ls-remote --exit-code origin HEAD > /dev/null
-
-      - name: Build and deploy to gh-pages
-        run: mkdocs gh-deploy --force --clean
+          DEPLOY_TOKEN: ${{ secrets.MKDOCS_DEPLOY_TOKEN }}
+        run: mkdocs gh-deploy --force

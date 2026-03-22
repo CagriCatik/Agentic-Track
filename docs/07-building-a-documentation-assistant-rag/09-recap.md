@@ -1,19 +1,44 @@
-# 07.09 Recap
+# 07.09 — Recap: From Crawling to Indexing
 
-## Context
-- Section: [07. Building a Documentation Assistant (RAG)](index.md)
-- Lesson number: 9 of 16
+## Overview
 
+We've completed the hardest part of the pipeline — **getting the data**. In production RAG applications, data acquisition is typically the most error-prone and time-consuming phase. Now we transition to preparing the data for the vector store.
 
-## Key Ideas
-- Capture the core concepts covered in this lesson.
-- Document practical patterns, APIs, and implementation details.
-- Note any caveats, tradeoffs, and follow-up tasks.
+---
 
-## Notes
-- Add your notes here.
+## What We've Done
 
-## Code and References
-```text
-Add code snippets, commands, links, and examples relevant to this lesson.
+```mermaid
+flowchart LR
+    subgraph Done["✅ Completed"]
+        SRC["🌐 LangChain Docs"]
+        CRAWL["🕷️ Tavily\n(Map + Extract)"]
+        DOCS["📄 LangChain Documents\n(500+ pages)"]
+
+        SRC --> CRAWL --> DOCS
+    end
+
+    subgraph Next["📋 Next Steps"]
+        SPLIT["✂️ Chunk into pieces"]
+        EMBED["🔢 Embed into vectors"]
+        INDEX["🗄️ Index in vector store"]
+
+        SPLIT --> EMBED --> INDEX
+    end
+
+    DOCS -.-> SPLIT
+
+    style Done fill:#10b981,color:#fff
+    style Next fill:#4a9eff,color:#fff
 ```
+
+---
+
+## What's Coming Next
+
+| Step | What Happens | Lesson |
+|---|---|---|
+| **Chunking** | Split large documents into smaller, searchable pieces (4000 chars, 200 overlap) | 10 |
+| **Batch indexing** | Embed chunks and store vectors in Pinecone — concurrently, with rate limit handling | 11 |
+
+The API-heavy crawling phase is behind us. The remaining ingestion steps are computationally simpler but involve important design decisions (chunk size, overlap, batch sizing) that directly impact retrieval quality.

@@ -3,15 +3,7 @@
 cd /d "%~dp0"
 
 set "VENV_DIR=.venv"
-set "REQ_FILE="
-
-if exist "req.txt" (
-  set "REQ_FILE=req.txt"
-) else if exist "requirements.txt" (
-  set "REQ_FILE=requirements.txt"
-) else if exist "requirements-docs.txt" (
-  set "REQ_FILE=requirements-docs.txt"
-)
+set "REQ_FILE=requirements-docs.txt"
 
 if not exist "%VENV_DIR%\Scripts\activate.bat" (
   echo [1/4] Creating virtual environment in "%VENV_DIR%"...

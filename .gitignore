@@ -8,6 +8,7 @@ __pycache__/
 
 # Virtual environments
 .env
+.env.openwebui
 .venv
 venv/
 env/
@@ -21,6 +22,7 @@ dist/
 
 # Logs
 *.log
+data/chroma/
 
 # Windows
 Thumbs.db
@@ -42,3 +44,12 @@ node_modules/
 *.tmp
 *.swp
 *.swo
+
+# Corbus
+corbus/
+evaluation/__pycache__/
+evaluation/corpus_eval_pack.json
+evaluation/eval_answers.jsonl
+evaluation/eval_answers.csv
+evaluation/eval_scores.json
+evaluation/eval_scores.png

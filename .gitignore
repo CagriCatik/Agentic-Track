@@ -44,9 +44,9 @@ node_modules/
 *.tmp
 *.swp
 *.swo
+*.pdf
 
 # Corbus
-corbus/
 evaluation/__pycache__/
 evaluation/corpus_eval_pack.json
 evaluation/eval_answers.jsonl

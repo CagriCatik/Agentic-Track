@@ -1,19 +1,8 @@
-# 16.01 Intro
+# 16.01 Introduction to Building MCP Servers & Clients
 
-## Context
-- Section: [16. Building MCP Servers and Clients](index.md)
-- Lesson number: 1 of 7
+Previously, we integrated pre-built MCP servers with pre-built MCP clients (like Claude Desktop or Cursor). Now, we are diving a layer deeper into the architecture.
 
-
-## Key Ideas
-- Capture the core concepts covered in this lesson.
-- Document practical patterns, APIs, and implementation details.
-- Note any caveats, tradeoffs, and follow-up tasks.
-
-## Notes
-- Add your notes here.
-
-## Code and References
-```text
-Add code snippets, commands, links, and examples relevant to this lesson.
-```
+In the upcoming lessons, we will:
+1. **Implement custom MCP Servers:** We will build servers that expose custom tools over both STDIO and SSE transports.
+2. **Implement a Custom MCP Client:** We will build our own client that can connect to these servers using the official `langchain-mcp-adapters` package.
+3. **Integrate the System:** We will connect our custom servers to our custom client, dynamically converting MCP tools into native LangChain tools.

@@ -1,0 +1,311 @@
+{
+  "pack_id": "corpus_agnostic_eval_v1",
+  "version": "1.0.0",
+  "corpus_dir": "corbus",
+  "source_count": 4,
+  "cases": [
+    {
+      "id": "C001",
+      "type": "title_lookup",
+      "prompt": "What is the exact title of the indexed source file `Automotive_Software_Engineering.pdf`? Cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Automotive Software Engineering",
+            "Automotive_Software_Engineering.pdf",
+            "Automotive Software Engineering"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "source_name": "Automotive_Software_Engineering.pdf",
+        "title": "Automotive Software Engineering"
+      }
+    },
+    {
+      "id": "C002",
+      "type": "source_grounding",
+      "prompt": "Which indexed source best matches this excerpt: \"Die komplexe Technik heutiger Kraftfahrzeuge und Antriebsstränge macht einen immer größer werdenden\"? Answer with the best matching title or source name and cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Automotive Software Engineering",
+            "Automotive_Software_Engineering.pdf",
+            "Automotive Software Engineering"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "title": "Automotive Software Engineering",
+        "source_name": "Automotive_Software_Engineering.pdf",
+        "excerpt": "Die komplexe Technik heutiger Kraftfahrzeuge und Antriebsstränge macht einen immer größer werdenden"
+      }
+    },
+    {
+      "id": "C003",
+      "type": "title_lookup",
+      "prompt": "What is the exact title of the indexed source file `Basiswissen_Automotive_Softwaretest.pdf`? Cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Basiswissen Automotive Softwaretest",
+            "Basiswissen_Automotive_Softwaretest.pdf",
+            "Basiswissen Automotive Softwaretest"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "source_name": "Basiswissen_Automotive_Softwaretest.pdf",
+        "title": "Basiswissen Automotive Softwaretest"
+      }
+    },
+    {
+      "id": "C004",
+      "type": "author_lookup",
+      "prompt": "Who is the author of the indexed document `Basiswissen Automotive Softwaretest`? Cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Ralf Bongard,Klaudia Dussa-Zieger,Ralf Reißing,Alexander Schulz",
+            "Ralf Bongard",
+            "Klaudia Dussa-Zieger",
+            "Ralf Reißing",
+            "Alexander Schulz"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "title": "Basiswissen Automotive Softwaretest",
+        "author": "Ralf Bongard,Klaudia Dussa-Zieger,Ralf Reißing,Alexander Schulz"
+      }
+    },
+    {
+      "id": "C005",
+      "type": "source_grounding",
+      "prompt": "Which indexed source best matches this excerpt: \"Ralf Bongard ist Geschäftsführer und Trainer der ISARTAL akademie GmbH\"? Answer with the best matching title or source name and cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Basiswissen Automotive Softwaretest",
+            "Basiswissen_Automotive_Softwaretest.pdf",
+            "Basiswissen Automotive Softwaretest"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "title": "Basiswissen Automotive Softwaretest",
+        "source_name": "Basiswissen_Automotive_Softwaretest.pdf",
+        "excerpt": "Ralf Bongard ist Geschäftsführer und Trainer der ISARTAL akademie GmbH"
+      }
+    },
+    {
+      "id": "C006",
+      "type": "title_lookup",
+      "prompt": "What is the exact title of the indexed source file `Basiswissen_Softwaretest.pdf`? Cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Basiswissen Softwaretest",
+            "Basiswissen_Softwaretest.pdf",
+            "Basiswissen Softwaretest"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "source_name": "Basiswissen_Softwaretest.pdf",
+        "title": "Basiswissen Softwaretest"
+      }
+    },
+    {
+      "id": "C007",
+      "type": "author_lookup",
+      "prompt": "Who is the author of the indexed document `Basiswissen Softwaretest`? Cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Andreas Spillner,Tilo Linz",
+            "Andreas Spillner",
+            "Tilo Linz"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "title": "Basiswissen Softwaretest",
+        "author": "Andreas Spillner,Tilo Linz"
+      }
+    },
+    {
+      "id": "C008",
+      "type": "source_grounding",
+      "prompt": "Which indexed source best matches this excerpt: \"Andreas Spillner war bis 2017 Professor für Informatik an der Hochschule\"? Answer with the best matching title or source name and cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Basiswissen Softwaretest",
+            "Basiswissen_Softwaretest.pdf",
+            "Basiswissen Softwaretest"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "title": "Basiswissen Softwaretest",
+        "source_name": "Basiswissen_Softwaretest.pdf",
+        "excerpt": "Andreas Spillner war bis 2017 Professor für Informatik an der Hochschule"
+      }
+    },
+    {
+      "id": "C009",
+      "type": "title_lookup",
+      "prompt": "What is the exact title of the indexed source file `Basiswissen_Testautomatisierung.pdf`? Cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Basiswissen Testautomatisierung",
+            "Basiswissen_Testautomatisierung.pdf",
+            "Basiswissen Testautomatisierung"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "source_name": "Basiswissen_Testautomatisierung.pdf",
+        "title": "Basiswissen Testautomatisierung"
+      }
+    },
+    {
+      "id": "C010",
+      "type": "author_lookup",
+      "prompt": "Who is the author of the indexed document `Basiswissen Testautomatisierung`? Cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Richard Seidl,Manfred Baumgartner,Stefan Gwihs,Thomas Steirer,Marc-Florian Wendland",
+            "Richard Seidl",
+            "Manfred Baumgartner",
+            "Stefan Gwihs",
+            "Thomas Steirer",
+            "Marc-Florian Wendland"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "title": "Basiswissen Testautomatisierung",
+        "author": "Richard Seidl,Manfred Baumgartner,Stefan Gwihs,Thomas Steirer,Marc-Florian Wendland"
+      }
+    },
+    {
+      "id": "C011",
+      "type": "source_grounding",
+      "prompt": "Which indexed source best matches this excerpt: \"Manfred Baumgartner verfügt über mehr als 30 Jahre Erfahrung in den Bereichen\"? Answer with the best matching title or source name and cite the supporting block.",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "values": [
+            "Basiswissen Testautomatisierung",
+            "Basiswissen_Testautomatisierung.pdf",
+            "Basiswissen Testautomatisierung"
+          ]
+        },
+        {
+          "kind": "citation"
+        }
+      ],
+      "metadata": {
+        "title": "Basiswissen Testautomatisierung",
+        "source_name": "Basiswissen_Testautomatisierung.pdf",
+        "excerpt": "Manfred Baumgartner verfügt über mehr als 30 Jahre Erfahrung in den Bereichen"
+      }
+    },
+    {
+      "id": "C012",
+      "type": "negative_missing_title",
+      "prompt": "Is there an indexed source titled `Synthetic Atlas of Unindexed Knowledge 101`? If the indexed sources do not support it, say you don't know based on the indexed sources.",
+      "checks": [
+        {
+          "kind": "abstain"
+        }
+      ],
+      "metadata": {
+        "missing_title": "Synthetic Atlas of Unindexed Knowledge 101"
+      }
+    },
+    {
+      "id": "C013",
+      "type": "negative_missing_author",
+      "prompt": "Who is the author of the indexed document `Synthetic Atlas of Unindexed Knowledge 101`? If the indexed sources do not support it, say you don't know based on the indexed sources.",
+      "checks": [
+        {
+          "kind": "abstain"
+        }
+      ],
+      "metadata": {
+        "missing_title": "Synthetic Atlas of Unindexed Knowledge 101"
+      }
+    },
+    {
+      "id": "C014",
+      "type": "negative_missing_acronym",
+      "prompt": "What does `ZXQ-317` mean in the indexed sources? If the indexed sources do not support it, say you don't know based on the indexed sources.",
+      "checks": [
+        {
+          "kind": "abstain"
+        }
+      ],
+      "metadata": {
+        "missing_acronym": "ZXQ-317"
+      }
+    },
+    {
+      "id": "C015",
+      "type": "negative_external_fact",
+      "prompt": "What is the release date of the product `Orchid Ledger Cloud` in the indexed sources? If the indexed sources do not support it, say you don't know based on the indexed sources.",
+      "checks": [
+        {
+          "kind": "abstain"
+        }
+      ],
+      "metadata": {
+        "external_fact": "Orchid Ledger Cloud release date"
+      }
+    }
+  ]
+}

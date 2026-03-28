@@ -1,0 +1,33 @@
+[project]
+name = "agentic-rag"
+version = "0.1.0"
+description = "Production-grade Agentic RAG system for automotive engineering knowledge base"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain>=0.3",
+    "langchain-ollama>=0.3",
+    "langchain-chroma>=0.2",
+    "langchain-community>=0.3",
+    "langgraph>=0.3",
+    "docling>=2.0",
+    "duckduckgo-search>=7.0",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "pymupdf4llm>=1.27.2.2",
+    "markitdown[all]>=0.1.5",
+    "ddgs>=9.11.4",
+    "fastapi>=0.135.2",
+    "uvicorn>=0.42.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.25",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

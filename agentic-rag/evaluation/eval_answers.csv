@@ -1,0 +1,33 @@
+﻿Case ID;Prompt;Generated Answer
+C001;What is the exact title of the indexed source file `Automotive_Software_Engineering.pdf`? Cite the supporting block.;Der Titel der Datei `Automotive_Software_Engineering.pdf` lautet **„Automotive“**【1†L1-L2】.
+C002;"Which indexed source best matches this excerpt: ""Die komplexe Technik heutiger Kraftfahrzeuge und Antriebsstränge macht einen immer größer werdenden""? Answer with the best matching title or source name and cite the supporting block.";"Der passende Eintrag ist **„Automotive“** (aus Automotive_Software_Engineering.pdf) – dort steht exakt:  
+
+*„Die komplexe Technik heutiger Kraftfahrzeuge und Antriebsstränge macht einen immer größer werdenden …“* [1]"
+C003;What is the exact title of the indexed source file `Basiswissen_Automotive_Softwaretest.pdf`? Cite the supporting block.;Der exakte Titel des Dokuments lautet **„Basiswissen Automotive Softwaretest“**【1】.
+C004;Who is the author of the indexed document `Basiswissen Automotive Softwaretest`? Cite the supporting block.;"Der Autor des Dokuments **„Basiswissen Automotive Softwaretest“** ist ein Team aus vier Personen:
+
+- Ralf Bongard  
+- Klaudia Dussa‑Zieger  
+- Ralf Reißing  
+- Alexander Schulz  
+
+(Quelle: [1])"
+C005;"Which indexed source best matches this excerpt: ""Ralf Bongard ist Geschäftsführer und Trainer der ISARTAL akademie GmbH""? Answer with the best matching title or source name and cite the supporting block.";Der passende Indexeintrag ist das Dokument **„Basiswissen Automotive Softwaretest“** – dort steht: „Ralf Bongard ist Geschäftsführer und Trainer der ISARTAL akademie GmbH“ [1].
+C006;What is the exact title of the indexed source file `Basiswissen_Softwaretest.pdf`? Cite the supporting block.;Der exakte Titel des indexierten Dokuments lautet **„Basiswissen Softwaretest“**【1†L1-L2】.
+C007;Who is the author of the indexed document `Basiswissen Softwaretest`? Cite the supporting block.;Der Autor des Dokuments **„Basiswissen Softwaretest“** ist Andreas Spillner und Tilo Linz【1】.
+C008;"Which indexed source best matches this excerpt: ""Andreas Spillner war bis 2017 Professor für Informatik an der Hochschule""? Answer with the best matching title or source name and cite the supporting block.";Der passende Eintrag ist das Dokument **„Basiswissen Softwaretest“** – dort steht: „Andreas Spillner war bis 2017 Professor für Informatik an der Hochschule Bremen.“ [1]
+C009;What is the exact title of the indexed source file `Basiswissen_Testautomatisierung.pdf`? Cite the supporting block.;Der exakte Titel der Datei `Basiswissen_Testautomatisierung.pdf` lautet **„Basiswissen Testautomatisierung“**【1†L1-L2】【2†L1-L2】
+C010;Who is the author of the indexed document `Basiswissen Testautomatisierung`? Cite the supporting block.;"Der Autor des Dokuments **„Basiswissen Testautomatisierung“** ist ein Team aus fünf Personen:
+
+- Richard Seidl  
+- Manfred Baumgartner  
+- Stefan Gwihs  
+- Thomas Steirer  
+- Marc‑Florian Wendland  
+
+(Quelle: [1])"
+C011;"Which indexed source best matches this excerpt: ""Manfred Baumgartner verfügt über mehr als 30 Jahre Erfahrung in den Bereichen""? Answer with the best matching title or source name and cite the supporting block.";Der passende Indexeintrag ist das Dokument **„Basiswissen Testautomatisierung“** – dort steht exakt: „Manfred Baumgartner verfügt über mehr als 30 Jahre Erfahrung in den Bereichen …“【1】.
+C012;Is there an indexed source titled `Synthetic Atlas of Unindexed Knowledge 101`? If the indexed sources do not support it, say you don't know based on the indexed sources.;I don't know based on the indexed sources.
+C013;Who is the author of the indexed document `Synthetic Atlas of Unindexed Knowledge 101`? If the indexed sources do not support it, say you don't know based on the indexed sources.;I don't know based on the indexed sources.
+C014;What does `ZXQ-317` mean in the indexed sources? If the indexed sources do not support it, say you don't know based on the indexed sources.;I don't know based on the indexed sources.
+C015;What is the release date of the product `Orchid Ledger Cloud` in the indexed sources? If the indexed sources do not support it, say you don't know based on the indexed sources.;I don't know based on the indexed sources.

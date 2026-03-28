@@ -45,6 +45,7 @@ node_modules/
 *.swp
 *.swo
 *.pdf
+.pytest_cache
 
 # Corbus
 evaluation/__pycache__/

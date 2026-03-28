@@ -1,0 +1,332 @@
+{
+  "pack_id": "corpus_agnostic_eval_v1",
+  "version": "1.0.0",
+  "case_count": 15,
+  "answered": 3,
+  "total_score": 4,
+  "max_score": 45,
+  "percentage": 8.89,
+  "per_case": [
+    {
+      "id": "C001",
+      "type": "title_lookup",
+      "prompt": "What is the exact title of the indexed source file `Automotive_Software_Engineering.pdf`? Cite the supporting block.",
+      "score": 2,
+      "max_score": 3,
+      "passed": false,
+      "answer": "**Ansatz**  \nDer genaue Titel der Quelle ist: **„Automotive Software Engineering: Principles, Processes, Methods, and Tools“.**\n\n**Nachweis**  \n\n> *Automotive software engineering: principles, processes, methods, and tools / Jörg Schäuffele, Thomas Zurawka; translated by Roger Carey.*  (Zeile 1–2)",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": true,
+          "weight": 2,
+          "note": "contains_any=['Automotive Software Engineering', 'Automotive_Software_Engineering.pdf', 'Automotive Software Engineering']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C002",
+      "type": "source_grounding",
+      "prompt": "Which indexed source best matches this excerpt: \"Die komplexe Technik heutiger Kraftfahrzeuge und Antriebsstränge macht einen immer größer werdenden\"? Answer with the best matching title or source name and cite the supporting block.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "ATZ/MTZ‑Fachbuch – „Die komplexe Technik heutiger Kraftfahrzeuge und Antriebsstränge macht einen immer größer werdenden Fundus an Informationen notwendig…“【Dokument 1】",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": false,
+          "weight": 2,
+          "note": "contains_any=['Automotive Software Engineering', 'Automotive_Software_Engineering.pdf', 'Automotive Software Engineering']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C003",
+      "type": "title_lookup",
+      "prompt": "What is the exact title of the indexed source file `Basiswissen_Automotive_Softwaretest.pdf`? Cite the supporting block.",
+      "score": 2,
+      "max_score": 3,
+      "passed": false,
+      "answer": "Die exakt als Quelldatei indizierte Datei trägt den Titel **„Basiswissen Automotive Softwaretest“**.  \n*(siehe: Basiswissen Automotive Softwaretest (eBook, PDF) – bücher.de)*",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": true,
+          "weight": 2,
+          "note": "contains_any=['Basiswissen Automotive Softwaretest', 'Basiswissen_Automotive_Softwaretest.pdf', 'Basiswissen Automotive Softwaretest']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C004",
+      "type": "author_lookup",
+      "prompt": "Who is the author of the indexed document `Basiswissen Automotive Softwaretest`? Cite the supporting block.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": false,
+          "weight": 2,
+          "note": "contains_any=['Ralf Bongard,Klaudia Dussa-Zieger,Ralf Reißing,Alexander Schulz', 'Ralf Bongard', 'Klaudia Dussa-Zieger', 'Ralf Reißing', 'Alexander Schulz']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C005",
+      "type": "source_grounding",
+      "prompt": "Which indexed source best matches this excerpt: \"Ralf Bongard ist Geschäftsführer und Trainer der ISARTAL akademie GmbH\"? Answer with the best matching title or source name and cite the supporting block.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": false,
+          "weight": 2,
+          "note": "contains_any=['Basiswissen Automotive Softwaretest', 'Basiswissen_Automotive_Softwaretest.pdf', 'Basiswissen Automotive Softwaretest']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C006",
+      "type": "title_lookup",
+      "prompt": "What is the exact title of the indexed source file `Basiswissen_Softwaretest.pdf`? Cite the supporting block.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": false,
+          "weight": 2,
+          "note": "contains_any=['Basiswissen Softwaretest', 'Basiswissen_Softwaretest.pdf', 'Basiswissen Softwaretest']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C007",
+      "type": "author_lookup",
+      "prompt": "Who is the author of the indexed document `Basiswissen Softwaretest`? Cite the supporting block.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": false,
+          "weight": 2,
+          "note": "contains_any=['Andreas Spillner,Tilo Linz', 'Andreas Spillner', 'Tilo Linz']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C008",
+      "type": "source_grounding",
+      "prompt": "Which indexed source best matches this excerpt: \"Andreas Spillner war bis 2017 Professor für Informatik an der Hochschule\"? Answer with the best matching title or source name and cite the supporting block.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": false,
+          "weight": 2,
+          "note": "contains_any=['Basiswissen Softwaretest', 'Basiswissen_Softwaretest.pdf', 'Basiswissen Softwaretest']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C009",
+      "type": "title_lookup",
+      "prompt": "What is the exact title of the indexed source file `Basiswissen_Testautomatisierung.pdf`? Cite the supporting block.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": false,
+          "weight": 2,
+          "note": "contains_any=['Basiswissen Testautomatisierung', 'Basiswissen_Testautomatisierung.pdf', 'Basiswissen Testautomatisierung']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C010",
+      "type": "author_lookup",
+      "prompt": "Who is the author of the indexed document `Basiswissen Testautomatisierung`? Cite the supporting block.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": false,
+          "weight": 2,
+          "note": "contains_any=['Richard Seidl,Manfred Baumgartner,Stefan Gwihs,Thomas Steirer,Marc-Florian Wendland', 'Richard Seidl', 'Manfred Baumgartner', 'Stefan Gwihs', 'Thomas Steirer', 'Marc-Florian Wendland']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C011",
+      "type": "source_grounding",
+      "prompt": "Which indexed source best matches this excerpt: \"Manfred Baumgartner verfügt über mehr als 30 Jahre Erfahrung in den Bereichen\"? Answer with the best matching title or source name and cite the supporting block.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "contains_any",
+          "passed": false,
+          "weight": 2,
+          "note": "contains_any=['Basiswissen Testautomatisierung', 'Basiswissen_Testautomatisierung.pdf', 'Basiswissen Testautomatisierung']"
+        },
+        {
+          "kind": "citation",
+          "passed": false,
+          "weight": 1,
+          "note": "citation"
+        }
+      ]
+    },
+    {
+      "id": "C012",
+      "type": "negative_missing_title",
+      "prompt": "Is there an indexed source titled `Synthetic Atlas of Unindexed Knowledge 101`? If the indexed sources do not support it, say you don't know based on the indexed sources.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "abstain",
+          "passed": false,
+          "weight": 3,
+          "note": "abstain"
+        }
+      ]
+    },
+    {
+      "id": "C013",
+      "type": "negative_missing_author",
+      "prompt": "Who is the author of the indexed document `Synthetic Atlas of Unindexed Knowledge 101`? If the indexed sources do not support it, say you don't know based on the indexed sources.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "abstain",
+          "passed": false,
+          "weight": 3,
+          "note": "abstain"
+        }
+      ]
+    },
+    {
+      "id": "C014",
+      "type": "negative_missing_acronym",
+      "prompt": "What does `ZXQ-317` mean in the indexed sources? If the indexed sources do not support it, say you don't know based on the indexed sources.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "abstain",
+          "passed": false,
+          "weight": 3,
+          "note": "abstain"
+        }
+      ]
+    },
+    {
+      "id": "C015",
+      "type": "negative_external_fact",
+      "prompt": "What is the release date of the product `Orchid Ledger Cloud` in the indexed sources? If the indexed sources do not support it, say you don't know based on the indexed sources.",
+      "score": 0,
+      "max_score": 3,
+      "passed": false,
+      "answer": "",
+      "checks": [
+        {
+          "kind": "abstain",
+          "passed": false,
+          "weight": 3,
+          "note": "abstain"
+        }
+      ]
+    }
+  ]
+}

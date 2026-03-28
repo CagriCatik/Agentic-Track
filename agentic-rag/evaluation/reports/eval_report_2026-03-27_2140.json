@@ -1,0 +1,124 @@
+{
+  "timestamp": "2026-03-27_2140",
+  "summary": {
+    "total_queries": 10,
+    "avg_precision_at_k": 0.05,
+    "source_accuracy": 0.1,
+    "faithfulness_rate": 0.6,
+    "relevance_rate": 1.0,
+    "avg_e2e_latency_s": 65.278,
+    "avg_retrieval_latency_s": 0.0
+  },
+  "queries": [
+    {
+      "question": "Was ist funktionale Sicherheit im Automobil?",
+      "expected_source": "Funktionale_Sicherheit_im_Automobil.pdf",
+      "precision_at_k": 0.5,
+      "source_hit": true,
+      "faithfulness": "yes",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 39.817
+    },
+    {
+      "question": "Erkläre die CAN-Bus Architektur und ihre Bedeutung.",
+      "expected_source": "Bussysteme_in_der_Fahrzeutechnik.pdf",
+      "precision_at_k": 0.0,
+      "source_hit": false,
+      "faithfulness": "yes",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 71.484
+    },
+    {
+      "question": "Was sind die Grundlagen des Softwaretests?",
+      "expected_source": "Basiswissen_Softwaretest.pdf",
+      "precision_at_k": 0.0,
+      "source_hit": false,
+      "faithfulness": "yes",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 75.029
+    },
+    {
+      "question": "Welche ASIL-Stufen gibt es nach ISO 26262?",
+      "expected_source": "Funktionale_Sicherheit_im_Automobil.pdf",
+      "precision_at_k": 0.0,
+      "source_hit": false,
+      "faithfulness": "yes",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 83.714
+    },
+    {
+      "question": "Was ist Testautomatisierung und warum ist sie wichtig?",
+      "expected_source": "Basiswissen_Testautomatisierung.pdf",
+      "precision_at_k": 0.0,
+      "source_hit": false,
+      "faithfulness": "yes",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 40.177
+    },
+    {
+      "question": "Erkläre die Elektronik in der Fahrzeugtechnik.",
+      "expected_source": "Elektronik_in_der_Fahrzeugtechnik.pdf",
+      "precision_at_k": 0.0,
+      "source_hit": false,
+      "faithfulness": "no",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 71.315
+    },
+    {
+      "question": "Was ist Fahrzeuginformatik?",
+      "expected_source": "Fahrzeuginformatik.pdf",
+      "precision_at_k": 0.0,
+      "source_hit": false,
+      "faithfulness": "yes",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 51.398
+    },
+    {
+      "question": "Wie funktioniert die Fahrzeugmesstechnik?",
+      "expected_source": "Fahrzeugmesstechnik.pdf",
+      "precision_at_k": 0.0,
+      "source_hit": false,
+      "faithfulness": "no",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 77.993
+    },
+    {
+      "question": "Was ist Embedded Software Timing?",
+      "expected_source": "Gliwa_Embedded_Software_Timing.pdf",
+      "precision_at_k": 0.0,
+      "source_hit": false,
+      "faithfulness": "no",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 71.468
+    },
+    {
+      "question": "Erkläre Systems Engineering im Kontext der Fahrzeugentwicklung.",
+      "expected_source": "System_Engineering.pdf",
+      "precision_at_k": 0.0,
+      "source_hit": false,
+      "faithfulness": "no",
+      "answer_relevance": "yes",
+      "citation_found": false,
+      "retrieval_latency_s": 0.0,
+      "e2e_latency_s": 70.388
+    }
+  ]
+}

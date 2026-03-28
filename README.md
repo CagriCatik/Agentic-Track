@@ -1,136 +1,165 @@
-# Agentic Track
+<div align="center">
 
-KnowledgeBase-Hub for LangChain, Agents, RAG, LangGraph, and MCP workflows.
+# Agentic Track - Automotive RAG & Knowledge Base
 
-## What Starts Here
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](#)
+[![FastAPI](https://img.shields.io/badge/FastAPI-API-green)](#)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Agentic%20RAG-orange)](#)
+[![ChromaDB](https://img.shields.io/badge/Vector%20Store-ChromaDB-purple)](#)
+[![Docs](https://img.shields.io/badge/Docs-MkDocs-informational)](#)
+[![License](https://img.shields.io/badge/License-Add%20Your%20License-lightgrey)](#)
 
-This repo starts a corpus-driven RAG app behind Open WebUI.
+**A project hub for production-oriented Generative AI workflows focused on high-precision Agentic RAG for the German automotive engineering domain.**
 
-- `open-webui` is the browser UI
-- `rag-api` is the OpenAI-compatible backend
-- `agentic-rag` is the model id exposed to Open WebUI
+</div>
 
-Important:
+---
 
-- `agentic-rag` is not the actual Ollama model name
-- the real runtime models are controlled through `.env.openwebui`
-- the active runtime can always be checked at `http://localhost:8001/health`
-- API documentation is available at `http://localhost:8001/docs`
-- ReDoc is available at `http://localhost:8001/redoc`
-- raw OpenAPI schema is available at `http://localhost:8001/openapi.json`
+## Overview
 
-Main settings:
+This repository combines document ingestion, structured data processing, retrieval pipelines, and an agent-based reasoning workflow into a single knowledge platform.
 
-- `RAG_CHAT_MODEL`: underlying chat model
-- `RAG_EMBED_MODEL`: embedding model
-- `RAG_RERANKER_MODEL`: optional reranker LLM
-- `RAG_API_MODEL_ID`: name shown in Open WebUI, default `agentic-rag`
+It is designed for:
+- processing automotive engineering PDFs and technical documents,
+- organizing extracted content with a Medallion-style data architecture,
+- serving high-quality retrieval with a vector database,
+- and running a self-correcting LangGraph workflow for reliable answers.
 
-If `RAG_CHAT_MODEL` and `RAG_EMBED_MODEL` are empty, the app auto-selects from installed Ollama models.
+---
 
-For the application internals and local CLI/API usage, see [projects/README.md](C:/Users/mccat/Desktop/Agentic-Track/projects/README.md).
+## Repository Structure
 
-## Open WebUI (Browser Chat)
+| Directory | Purpose |
+|---|---|
+| [`agentic-rag/`](./agentic-rag/) | Core application code, including the LangGraph agent, FastAPI server, CLI, and Medallion pipeline logic. |
+| [`corpus/`](./corpus/) | Source knowledge base containing automotive engineering PDFs and related documents. |
+| [`docs/`](./docs/) | MkDocs source files for the technical documentation site. |
+| [`tests/`](./agentic-rag/tests/) | Unit, integration, and evaluation test suites. |
+| [`tutorials/`](./tutorials/) | Learning materials and framework-specific guides. |
 
-This repo includes Open WebUI + a local RAG API bridge:
+---
 
-- `open-webui` provides the browser chat UI.
-- `rag-api` exposes your LangChain RAG flow as an OpenAI-compatible API.
-- `rag-api` calls local Ollama models.
+## Key Features
 
-### 1) First-time setup
+### Agentic RAG Workflow
+The system implements a corrective and adaptive retrieval pipeline using LangGraph.
 
-1. Copy `.env.openwebui.example` to `.env.openwebui` (or run `openwebui.bat start` once and it auto-creates it).
-2. Ensure Ollama is running on your machine (`http://localhost:11434` by default).
-3. Put your source documents into the `corbus/` folder (mounted into the RAG API container). Supported formats include `pdf`, `txt`, `md`, `rst`, `html`, `json`, `csv`, `docx`, and `xlsx`.
+Main components include:
+- **Security layer** to reduce prompt injection and jailbreak risks,
+- **Routing logic** to choose between vector retrieval, direct LLM answering, or web search,
+- **Document grading** to check whether retrieved content is relevant,
+- **Answer validation and retry logic** to reduce hallucinations and improve output quality.
 
-### 2) Start Open WebUI
+### Medallion Data Architecture
+Data is processed into separate layers under `agentic-rag/data/`:
 
-```bat
-openwebui.bat start
+- **Bronze**: Raw extracted content from source documents  
+  - PDF extraction with `pymupdf4llm`
+  - HTML conversion with `MarkItDown`
+
+- **Silver**: Cleaned and normalized records  
+  - section headers
+  - metadata enrichment
+  - page-level traceability
+
+- **Gold**: Retrieval-ready assets  
+  - chunked documents
+  - optimized embeddings
+  - ChromaDB vector index
+
+---
+
+## Quick Start
+
+Make sure the following tools are installed:
+- [uv](https://github.com/astral-sh/uv)
+- [Ollama](https://ollama.com/)
+
+### 1. Set up the environment
+
+```powershell
+cd agentic-rag
+uv sync
+ollama pull llama3:8b
+ollama pull nomic-embed-text
+````
+
+### 2. Ingest documents
+
+Process local PDFs and documentation content into the vector store:
+
+```powershell
+uv run python app/cli.py --ingest
 ```
 
-Then open `http://localhost:3000`.
-In the model picker, choose `agentic-rag` (default).
+### 3. Start the interactive application
 
-### Change The Actual Model
-
-Edit [`.env.openwebui`](C:/Users/mccat/Desktop/Agentic-Track/.env.openwebui):
-
-```env
-RAG_CHAT_MODEL=gpt-oss:120b-cloud
-RAG_EMBED_MODEL=nomic-embed-text:latest
-RAG_RERANKER_MODEL=gpt-oss:120b-cloud
+```powershell
+uv run python app/cli.py
 ```
 
-Then restart:
+---
 
-```bat
-openwebui.bat restart
-```
+## Configuration
 
-To verify what is active:
-
-```bat
-curl http://localhost:8001/health
-```
-
-### API Documentation
-
-The RAG API exposes FastAPI Swagger / OpenAPI docs:
-
-- Swagger UI: `http://localhost:8001/docs`
-- ReDoc: `http://localhost:8001/redoc`
-- OpenAPI JSON: `http://localhost:8001/openapi.json`
-
-Protected endpoints use Bearer auth. In Swagger UI, click `Authorize` and enter:
+Project behavior can be adjusted through:
 
 ```text
-agentic-track-local
+agentic-rag/config.yaml
 ```
 
-or whatever you configured as `RAG_API_KEY` in `.env.openwebui`.
+Recommended starting points:
 
-### 3) Useful commands
+* **Model selection**: `gpt-oss:120b-cloud` for strong German-language synthesis quality
+* **Retrieval depth**: `top_k: 6+` for improved recall before relevance filtering
+* **Hallucination grading**: useful for safer responses, but may increase latency during local testing
 
-```bat
-openwebui.bat status
-openwebui.bat logs-api
-openwebui.bat logs-webui
-openwebui.bat stop
+---
+
+## Typical Workflow
+
+1. Add source documents to the corpus.
+2. Run the ingestion pipeline.
+3. Build or refresh the vector store.
+4. Query the system through the CLI or API.
+5. Let the LangGraph workflow retrieve, grade, validate, and refine responses.
+
+---
+
+## Documentation
+
+Technical documentation lives in the [`docs/`](./docs/) directory and can be used to build a full MkDocs site for project references, architecture notes, and usage guides.
+
+---
+
+## Testing
+
+Tests are located in:
+
+```text
+agentic-rag/tests/
 ```
 
-### Notes
+They cover:
 
-- Docker + Docker Compose are required.
-- Data is stored in Docker volume `open-webui-data`.
-- Vector index is persisted under `data/chroma/` on the host.
-- Open WebUI is wired to `rag-api` through `OPENAI_API_BASE_URL(S)` in `.env.openwebui`.
-- LangSmith tracing can be enabled with `LANGSMITH_TRACING=true`, `LANGSMITH_PROJECT=...`, and `LANGSMITH_API_KEY=...` in `.env.openwebui`.
-- `rag-api` model id is `agentic-rag` (configurable with `RAG_API_MODEL_ID`).
-- Underlying Ollama chat/embed models auto-select by heuristic (or pin with `RAG_CHAT_MODEL` and `RAG_EMBED_MODEL`).
-- Corpus path, reranking, and indexing behavior are controlled with `RAG_CORPUS_DIR`, `RAG_RETRIEVAL_CANDIDATES`, `RAG_RERANKER_ENABLED`, `RAG_RERANKER_MODE`, `RAG_RERANKER_MODEL`, `RAG_RERANKER_TOP_N`, `RAG_INDEX_ON_START`, and `RAG_REINDEX_ON_START`.
-- Recommended for large corpora: keep `RAG_INDEX_ON_START=False` and run indexing explicitly.
-- First startup can take 1-2 minutes (image/model initialization). The launcher now waits for readiness.
-- If you see `Access is denied` from Docker, run terminal as Administrator or add your user to `docker-users`, then sign out/in.
+* unit tests,
+* integration tests,
+* and evaluation workflows for retrieval and answer quality.
 
-## Local Indexing CLI
+---
 
-To rebuild the index locally without Docker:
+## Use Cases
 
-```bat
-python projects\main.py --index-only --reindex --corpus-dir corbus --vector-db-dir data/chroma
-```
+This repository is suitable for:
 
-## Evaluation
+* automotive engineering knowledge bases,
+* technical PDF question-answering systems,
+* domain-specific RAG assistants,
+* internal documentation search,
+* and agent-based retrieval pipelines that require validation and correction steps.
 
-Use the corpus-agnostic evaluation flow:
+---
 
-```bat
-python evaluation\run_eval_pack.py --generate-pack --corpus-dir corbus --vector-db-dir data/chroma
-python evaluation\score_eval_pack.py --pack evaluation\corpus_eval_pack.json --answers evaluation\eval_answers.jsonl --out evaluation\eval_scores.json
-```
+## Notes
 
-## CI
-
-HTTP-level integration tests now run in CI through `.github/workflows/ci.yml`. The suite exercises `/v1/models` and `/v1/chat/completions` with a deterministic in-process runtime so the API surface is covered without requiring a live Ollama daemon during CI.
+This repository is structured to support both experimentation and production-oriented iteration. The main emphasis is on traceable ingestion, retrieval quality, and reliable answer generation in specialized technical domains.

@@ -1,0 +1,51 @@
+# === LLM ===
+llm:
+  #chat_model: "gpt-oss:20b-cloud"
+  chat_model: "gpt-oss:120b-cloud"  # Stark für Answer-Synthesis; selten der Haupt-Engpass im RAG
+  #chat_model: "glm-4.6:cloud"
+  embed_model: "nomic-embed-text"  # OK, aber potenzieller Bottleneck → unbedingt gegen andere Modelle benchmarken (Recall/Ranking)
+  base_url: "http://localhost:11434"
+  temperature: 0  # korrekt für deterministische, faktenbasierte Antworten
+  max_retries: 3  # sinnvoll, aber nur effektiv wenn Retries Strategie ändern (nicht blind regenerieren)
+
+# === Data (Medallion Architecture) ===
+data:
+  bronze_dir: "./data/bronze"
+  silver_dir: "./data/silver"
+  gold_dir: "./data/gold/chroma"
+  manifest_dir: "./data/manifests"  # sollte enthalten: Hashes, Parser-Version, Chunking, Embedding-Modell → wichtig für Debugging/Repro
+
+# === Ingestion ===
+ingestion:
+  parser: "pymupdf4llm"  # gut für PDFs + Seitenreferenzen; kritisch: Tabellen, Layout, Header/Footer prüfen
+  chunk_size: 1000  # eher groß → kann Retrieval verschlechtern (zu viel Kontext pro Chunk)
+  chunk_overlap: 200  # konservativ; reduziert Boundary-Probleme, erhöht aber Redundanz im Index
+  markdown_headers_to_split:
+    - ["#", "Header1"]
+    - ["##", "Header2"]
+    - ["###", "Header3"]
+  # Empfehlung: kleinere Chunks (≈600–800) testen + ggf. zusätzliche Splits (Seiten, Listen, Tabellen)
+
+# === Retrieval ===
+retrieval:
+  top_k: 3  # wahrscheinlich zu niedrig → Risiko, relevante Chunks nie zu sehen (Recall-Problem)
+  search_type: "mmr" # gut zur Reduktion redundanter Ergebnisse
+  mmr_diversity: 0.3  # sinnvoller Default (mehr Relevanz als Diversität)
+  collection_name: "automotive_docs"
+  # Empfehlung: top_k eher 6–10 + danach grading/ranking statt vorher zu hart beschneiden
+
+# === Orchestration ===
+# viele Grader erhöhen Latenz und Fehleranfälligkeit (Overfiltering möglich)
+orchestration:
+  security_scan_enabled: true  # sinnvoll, v.a. bei externen Quellen
+  routing_enabled: true  # gut, aber nur wenn Routing stabil ist (sonst unnötige Varianz)
+  document_grading_enabled: true  # nützlich, kann aber gute Chunks verwerfen wenn zu aggressiv
+  hallucination_grading_enabled: true  # oft unzuverlässig (Model bewertet sich selbst) → kritisch prüfen
+  relevance_grading_enabled: true  # sinnvollster Grader in der Pipeline
+  web_search_enabled: true  # nur mit starkem Gatekeeping nutzen (sonst Vermischung interner/externer Quellen)
+  max_hallucination_retries: 3  # eher hoch; sinnvoll nur wenn Retry Strategie angepasst wird
+  web_search_max_results: 3  # guter konservativer Wert
+  # Empfehlung:
+  # - Hallucination-Grading ggf. deaktivieren oder zuletzt einsetzen
+  # - Web nur bei niedriger Retrieval-Confidence triggern
+  # - Pipeline vereinfachen, falls Debugging schwierig wird
